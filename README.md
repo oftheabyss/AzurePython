@@ -15,3 +15,9 @@ The key piece that was missing from SDK class instantiation was the `credential_
 * AzureUSGovernment: `['https://management.usgovcloudapi.net/.default']`
 
 By appending `.default` to the `base_url` and passing it to the SDK classes during instantiation, things started working! I just wish I had figured this out *before* writing a bunch of custom classes that hit the Azure APIs directly. Oh well, hopefully the examples in this repository save you from the countless hours of frustration I went through in attempting to get the Azure SDK for Python to work for both AzureCloud and AzureUSGovernment.
+
+## Authentication
+The authentication done in this repo uses [azure.identity.defaultazurecredential](https://docs.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python). I created a service principal using the [Azure App Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) service within Azure Active Directory. This service principal has the **owner** role assigned to it at the **tenant root group management group** scope. When using this class locally, I had the following service principal credentials set in my environment:
+* `AZURE_CLIENT_ID`: The client ID of my service principal (Application ID, **not** Object ID)
+* `AZURE_CLIENT_SECRET`: The client secret of my service principal
+* `AZURE_TENANT_ID`: The tenant ID my service principal is in.
