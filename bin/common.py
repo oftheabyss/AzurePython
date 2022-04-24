@@ -59,7 +59,7 @@ class ManagementGroups(AzureClient):  # pylint: disable=too-few-public-methods
         The Azure Cloud to use when authenticating and making requests
     '''
     def __init__(self, credential: DefaultAzureCredential = None,
-                authority: str = DEFAULT_CLOUD):
+                 authority: str = DEFAULT_CLOUD):
         super().__init__(credential, authority)
         self.client = ManagementGroupsAPI(
             self.credential, self.base_url,

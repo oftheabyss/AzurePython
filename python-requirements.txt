@@ -1,0 +1,3 @@
+azure-cli
+azure.cli.core
+pylint
