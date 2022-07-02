@@ -1,3 +1,4 @@
 azure-cli
 azure.cli.core
+azure.identity
 pylint
